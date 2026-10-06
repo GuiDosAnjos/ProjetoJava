@@ -22,6 +22,13 @@ public class Music {
         this.nomeArquivo = nomeArquivo;
     }
 
+    public Music(String titulo, String estilo, String artista, String nomeArquivo) {
+        this.titulo = titulo;
+        this.estilo = estilo;
+        this.artista = artista;
+        this.nomeArquivo = nomeArquivo;
+    }
+
     public Object getId() {
         return _id;
     }

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface MusicRepository extends MongoRepository<Music, ObjectId> {
 
-    List<Music> findByTituloContainingIgnoreCaseOrEstiloContaningIgnoreCaseOrArtistaContainingIgnoreCase(
+    List<Music> findByTituloContainingIgnoreCaseOrEstiloContainingIgnoreCaseOrArtistaContainingIgnoreCase(
             String titulo, String estilo, String artista
     );
 }
