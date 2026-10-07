@@ -1,11 +1,14 @@
 package unoeste.fipp.springplaymysongs.entities;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "musics")
 public class Music {
-    private Object _id;
+
+    @Id
+    private ObjectId _id; // @Id é obrigatório e o tipo deve ser ObjectId
     private String titulo;
     private String estilo;
     private String artista;
@@ -14,8 +17,8 @@ public class Music {
     public Music() {
     }
 
-    public Music(Object id, String titulo, String estilo, String artista, String nomeArquivo) {
-        this._id = id;
+    public Music(ObjectId _id, String titulo, String estilo, String artista, String nomeArquivo) {
+        this._id = _id;
         this.titulo = titulo;
         this.estilo = estilo;
         this.artista = artista;
@@ -29,12 +32,12 @@ public class Music {
         this.nomeArquivo = nomeArquivo;
     }
 
-    public Object getId() {
+    public ObjectId get_id() {
         return _id;
     }
 
-    public void setId(Object id) {
-        this._id = id;
+    public void set_id(ObjectId _id) {
+        this._id = _id;
     }
 
     public String getTitulo() {

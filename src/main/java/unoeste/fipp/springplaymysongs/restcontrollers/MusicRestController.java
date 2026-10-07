@@ -37,8 +37,11 @@ public class MusicRestController {
     public ResponseEntity<Object> musicUpload(@RequestParam("titulo") String titulo,
                                               @RequestParam("estilo") String estilo,
                                               @RequestParam("artista") String artista,
-                                              @RequestParam("file") MultipartFile file) {
+                                              @RequestParam(value = "file", required = false) MultipartFile file) {
         try {
+            if (file == null || file.isEmpty()) {
+                return ResponseEntity.badRequest().body(new Erro("Ficheiro de áudio não selecionado."));
+            }
             Music musicaSalva = musicService.salvarMusica(titulo, estilo, artista, file);
             return ResponseEntity.ok(musicaSalva);
         } catch (IllegalArgumentException e) {
