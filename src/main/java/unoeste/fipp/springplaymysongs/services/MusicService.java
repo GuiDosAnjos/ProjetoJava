@@ -36,7 +36,7 @@ public class MusicService {
 
     // Retorna a lista de estilos de músicas para o combobox
     public List<String> getMusicStyles() {
-        return List.of("Pop", "Rock", "Sertanejo", "Samba", "Funk", "MPB", "Hip Hop", "Eletrônica");
+        return List.of("Pop", "Rock", "Sertanejo", "Samba", "Funk", "MPB", "Hip Hop", "Eletrônica", "Rap", "Trap", "Outros");
     }
 
     // Busca músicas no MongoDB por palavra-chave

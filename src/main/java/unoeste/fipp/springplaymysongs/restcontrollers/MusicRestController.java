@@ -40,14 +40,12 @@ public class MusicRestController {
                                               @RequestParam(value = "file", required = false) MultipartFile file) {
         try {
             if (file == null || file.isEmpty()) {
-                return ResponseEntity.badRequest().body(new Erro("Ficheiro de áudio não selecionado."));
+                return ResponseEntity.badRequest().body(new Erro("Arquivo de áudio não selecionado."));
             }
             Music musicaSalva = musicService.salvarMusica(titulo, estilo, artista, file);
             return ResponseEntity.ok(musicaSalva);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(new Erro(e.getMessage()));
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(new Erro("Erro ao processar o upload do áudio: " + e.getMessage()));
+            return ResponseEntity.badRequest().body(new Erro(e.getMessage()));
         }
     }
 }
